@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @article %>
-
+<div>
+<h3>Written By <%=  @article.user.username %>  </h3>
+</div>
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
   <%= link_to "Back to articles", articles_path %>
