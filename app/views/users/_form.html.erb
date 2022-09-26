@@ -1,29 +1,54 @@
-<%= form_with(model: user) do |form| %>
+<div class="container">
+<%= form_with(model: user, class: "shadom p-3 mb-3 bg-gray rounded") do |form| %>
+
   <% if user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <div class="alert alert-danger alert-dismissible" role="alert">
+  <h4 class="alert-heading"><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h4>
+  <ul>
+  <% user.errors.each do |error| %>
+    <li><%= error.full_message %></li>
   <% end %>
+</ul>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+  
   </div>
-  <div>
-  <%= form.label :email, style: "display: block" %>
-  <%= form.text_field :email %>
-</div>
-<div>
-<%= form.label :password, style: "display: block" %>
-<%= form.text_field :password %>
-</div>
-  <div>
-    <%= form.submit "Signup" %>
+      
+
+      
+  <% end %>
+  <div class="row justify-content-center">
+   <div class="col-10">
+    <div class="form-group row">
+      <%= form.label :username , class: "col-2 col-form-label" %> 
+      <div class="col-10">
+        <%= form.text_field :username, class: "form-control", placeholder: "Enter Username" %>
+      </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+      <%= form.label :email , class: "col-2 col-form-label" %> 
+      <div class="col-10">
+        <%= form.text_field :email, class: "form-control",  placeholder: "Enter Email" %>
+      </div>
+    </div>
+    <br/>
+    <div class="form-group row">
+    <%= form.label :password , class: "col-2 col-form-label" %> 
+    <div class="col-10">
+      <%= form.text_field :password, class: "form-control",  placeholder: "Enter Password" %>
+    </div>
+  </div>
+  <br/>
+  <div class="form-group row justify-content-center">
+    <div class="col-10">
+    <%= form.submit(@user.new_record? ? "Signup" : "Update user", class: "btn btn-outline-light btn-lg") %>
+    </div>
   </div>
 <% end %>
+</div>
+
+</div>
+</div>

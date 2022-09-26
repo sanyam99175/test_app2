@@ -1,10 +1,12 @@
-<h1>Editing user</h1>
+<div id="article-content">
+<h1 class="text-center mt-4">Edit user</h1>
 
 <%= render "form", user: @user %>
 
 <br>
 
 <div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+  
+  <%= link_to "Back to users", users_path, class: "text-white" %>
+</div>
 </div>
