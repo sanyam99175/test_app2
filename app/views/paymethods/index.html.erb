@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Paymethods</h1>
+<%= will_paginate @paymethods %>
+<div id="paymethods">
+  <% @paymethods.each do |paymethod| %>
+    <%= render paymethod %>
+    <p>
+      <%= link_to "Show this paymethod", paymethod %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New paymethod", new_paymethod_path %>
